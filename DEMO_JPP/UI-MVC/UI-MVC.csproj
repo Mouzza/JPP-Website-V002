@@ -392,6 +392,7 @@
     <Content Include="Views\Gebruiker\Profiel.cshtml" />
     <Content Include="Views\Gebruiker\VerwijderGebruiker.cshtml" />
     <Content Include="Views\Gebruiker\WijzigGebruiker.cshtml" />
+    <Content Include="Views\Gebruiker\recenteGebruikers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

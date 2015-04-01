@@ -223,7 +223,6 @@ namespace JPP.UI.Web.MVC.Controllers
         }
 
         //Gebuiker/Gebruikers
-           [Authorize(Roles = "Admin")]
         public ActionResult Index(int? page)
         {
             int pageSize = 5;
@@ -248,6 +247,33 @@ namespace JPP.UI.Web.MVC.Controllers
 
             return View(model.ToPagedList(pageNumber, pageSize));
         }
+
+          //Gebuiker/recenteGebruikers
+           
+           public ActionResult recenteGebruikers()
+           {
+               
+
+               IEnumerable<User> users = apc.Users.ToList().OrderByDescending(u => u.Created);
+
+               var model = new Collection<UserRoleViewModel>();
+
+               for (int i = 0; i < 5;i++)
+               {
+                   var roles = users.ElementAt(i).Roles;
+                   var rolesCollection = new Collection<IdentityRole>();
+
+                   foreach (var role in roles)
+                   {
+                       var role1 = RoleManager.FindById(role.RoleId);
+                       rolesCollection.Add(role1);
+                   }
+
+                   model.Add(new UserRoleViewModel { user = users.ElementAt(i), roles = rolesCollection });
+               }
+
+               return View(model);
+           }
 
 
     }

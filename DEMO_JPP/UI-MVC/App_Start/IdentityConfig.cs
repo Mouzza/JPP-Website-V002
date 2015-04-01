@@ -58,26 +58,50 @@ namespace JPP.UI.Web.MVC
 
 
 
+   
+
+            //maak dummy gebruikers aan
+            for (int i = 0; i < 6; i++)
+            {
+                name = "Gebruiker" + i;
+                email = "gebruiker" + i + "@test.be";
+                password = "Gebruiker0"+i +"!";
+                roleName = "Gebruiker";
+
+                var gebruiker = UserManager.FindByName(name);
+                if (gebruiker==null)
+                {
+                     gebruiker = new User { UserName = name, Email = email, Created = DateTime.Now, EmailConfirmed = true };
+                     var result = UserManager.Create(gebruiker, password);
+                     result = UserManager.SetLockoutEnabled(gebruiker.Id, true);
+                }
+
+                var rolesVoorGebruiker = UserManager.GetRoles(gebruiker.Id);
+                if (!rolesVoorGebruiker.Contains(roleName))
+                {
+                    var result = UserManager.AddToRole(gebruiker.Id, roleName);
+                }
+               
+             
+
+            }
+
+
             //Admin----------------------------------------------
-             name = "Admin";
-             email = "admin@admin.be";
-             password = "Admin01!";
+            name = "Admin";
+            email = "admin@admin.be";
+            password = "Admin01!";
 
-             roleName = "Admin";
-       
-
-
-
+            roleName = "Admin";
 
             //Create Role Admin if it does not exist
 
             role = RoleManager.FindByName(roleName);
-            if (role==null)
+            if (role == null)
             {
                 role = new IdentityRole(roleName);
                 var roleresult = RoleManager.Create(role);
             }
-
             //Create User=Admin with password
 
             var user = UserManager.FindByName(name);

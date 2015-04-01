@@ -271,3 +271,8 @@ textarea {
 #spanZwart{
     color:black;
 }
+
+#extraInfoTable{
+    float:left;
+    margin:2%;
+}
