@@ -20,6 +20,7 @@ ModuleManager
 - readActieveAgendaModule
 - readAllDossierModules
 - readAllAgendaModules
+- readGeplandeModules
 - createModule
 - updateModule
 - removeModule
