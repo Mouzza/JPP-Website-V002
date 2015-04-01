@@ -3,7 +3,7 @@ Jongeren participatie platform Website  v002
 
 TO-DO Managers: 
 
-1. AntwoordManager
+AntwoordManager
 - topDossierAntwoorden(int top)
 - topAgendaAntwoorden(int top)
 - readAntwoord(int id)
@@ -13,7 +13,7 @@ TO-DO Managers:
 - updateAntwoord
 - removeAntwoord
 
-2. ModuleManager
+ModuleManager
 - topModules(int top)
 - readModule(int id)
 - readActieveDossierModule
@@ -24,7 +24,7 @@ TO-DO Managers:
 - updateModule
 - removeModule
 
-3. CommentManager
+CommentManager
 - topComments(int top)
 - readComment(int id)
 - readAllComments
