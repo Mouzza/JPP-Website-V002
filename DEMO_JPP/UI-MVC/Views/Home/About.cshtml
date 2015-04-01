@@ -2,6 +2,12 @@
     ViewBag.Title = "Over ons";
 }
 
+@if (Request.IsAuthenticated)
+{
+    <h1 id="paginaTitel">Over ons</h1>
+
+
+}
 <div class="col-md-6 centraal">
     <h2>@ViewBag.Title.</h2>
     <h3>@ViewBag.Message</h3>
