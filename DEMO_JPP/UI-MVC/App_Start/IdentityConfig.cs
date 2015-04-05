@@ -43,6 +43,11 @@ namespace JPP.UI.Web.MVC
             string email = "";
             string password = "";
             string roleName = "";
+            string voornaam = "Dummyvoornaam";
+            string achternaam = "Dummyachternaam";
+            int postcode = 2000;
+            DateTime geboortedatum = DateTime.Now;
+
 
             //Gebruiker
             //maak roll Gebruiker
@@ -71,7 +76,16 @@ namespace JPP.UI.Web.MVC
                 var gebruiker = UserManager.FindByName(name);
                 if (gebruiker==null)
                 {
-                     gebruiker = new User { UserName = name, Email = email, Created = DateTime.Now, EmailConfirmed = true };
+                     gebruiker = new User { UserName = name, 
+                                            Email = email, 
+                                            Created = DateTime.Now, 
+                                            EmailConfirmed = true, 
+                                            profilePublic=true,  
+                                            Birthday = geboortedatum, 
+                                            FirstName = voornaam, 
+                                            LastName = achternaam, 
+                                            Zipcode = postcode};
+
                      var result = UserManager.Create(gebruiker, password);
                      result = UserManager.SetLockoutEnabled(gebruiker.Id, true);
                 }
@@ -109,7 +123,19 @@ namespace JPP.UI.Web.MVC
             if (user == null)
             {
 
-                user = new User { UserName = name, Email = email , Created = DateTime.Now , EmailConfirmed = true};
+                user = new User
+                {
+                    UserName = name,
+                    Email = email,
+                    Created = DateTime.Now,
+                    EmailConfirmed = true,
+                    profilePublic = true,
+                    Birthday = geboortedatum,
+                    FirstName = voornaam,
+                    LastName = achternaam,
+                    Zipcode = postcode
+                };
+
                 var result = UserManager.Create(user, password);
                 result = UserManager.SetLockoutEnabled(user.Id, false);
             }
@@ -121,8 +147,7 @@ namespace JPP.UI.Web.MVC
                 var result = UserManager.AddToRole(user.Id, roleName);
             }
 
-
-
+      
             //Moderator ------------------------------------------
              name = "Moderator";
              email = "moderator@mod.be";
@@ -146,7 +171,18 @@ namespace JPP.UI.Web.MVC
             if (user == null)
             {
 
-                user = new User { UserName = name, Email = email, Created = DateTime.Now, EmailConfirmed = true };
+                user = new User
+                {
+                    UserName = name,
+                    Email = email,
+                    Created = DateTime.Now,
+                    EmailConfirmed = true,
+                    profilePublic = true,
+                    Birthday = geboortedatum,
+                    FirstName = voornaam,
+                    LastName = achternaam,
+                    Zipcode = postcode
+                };
                 var result = UserManager.Create(user, password);
                 result = UserManager.SetLockoutEnabled(user.Id, false);
             }
@@ -157,6 +193,53 @@ namespace JPP.UI.Web.MVC
             {
                 var result = UserManager.AddToRole(user.Id, roleName);
             }
+
+            //Expert----------------------------------------------
+            name = "Expert";
+            email = "expert@expert.be";
+            password = "Expert01!";
+
+            roleName = "Expert";
+
+            //Create Role Expert if it does not exist
+
+            role = RoleManager.FindByName(roleName);
+            if (role == null)
+            {
+                role = new IdentityRole(roleName);
+                var roleresult = RoleManager.Create(role);
+            }
+            //Create User=Expert with password
+
+            user = UserManager.FindByName(name);
+
+            if (user == null)
+            {
+
+                user = new User
+                {
+                    UserName = name,
+                    Email = email,
+                    Created = DateTime.Now,
+                    EmailConfirmed = true,
+                    profilePublic = true,
+                    Birthday = geboortedatum,
+                    FirstName = voornaam,
+                    LastName = achternaam,
+                    Zipcode = postcode
+                };
+
+                var result = UserManager.Create(user, password);
+                result = UserManager.SetLockoutEnabled(user.Id, false);
+            }
+
+            //Add User Admin to Role Admin if not already added
+            rolesForUser = UserManager.GetRoles(user.Id);
+            if (!rolesForUser.Contains(role.Name))
+            {
+                var result = UserManager.AddToRole(user.Id, roleName);
+            }
+
 
            
         }
@@ -232,7 +315,7 @@ namespace JPP.UI.Web.MVC
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
                 RequireLowercase = true,
                 RequireUppercase = true,

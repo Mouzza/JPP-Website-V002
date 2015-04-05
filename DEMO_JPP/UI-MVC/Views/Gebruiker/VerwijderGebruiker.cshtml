@@ -9,15 +9,47 @@
 
 <h3>Bent u zeker?</h3>
 <div>
-    <h4>User</h4>
+    <h4>@Model.user.UserName</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Naam
+            Gebruikersnaam
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.user.UserName)
+        </dd>
+        <dt>
+            Voornaam:
+        </dt>
+
+        <dd>
+            @Model.user.FirstName
+
+        </dd>
+        <dt>
+            Achternaam:
+        </dt>
+
+        <dd>
+            @Model.user.LastName
+
+        </dd>
+        <dt>
+            Geboortedatum:
+        </dt>
+
+        <dd>
+            @Model.user.Birthday
+
+        </dd>
+        <dt>
+            Postcode:
+        </dt>
+
+        <dd>
+            @Model.user.Zipcode
+
         </dd>
         <dt>
             Gsm-nummer

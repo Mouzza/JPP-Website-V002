@@ -55,12 +55,38 @@ namespace JPP.UI.Web.MVC.Controllers
             return View();
         }
 
-        // /Manage/Profiel
 
-        public ActionResult Profiel(string id)
+
+        public ActionResult ProfielPartial()
         {
 
-            User user = apc.Users.Find(id);
+            User user = apc.Users.Find(User.Identity.GetUserId());
+
+            var model = new UserRoleViewModel();
+
+
+            var roles = user.Roles;
+            var rolesCollection = new Collection<IdentityRole>();
+
+            foreach (var role in roles)
+            {
+                var role1 = RoleManager.FindById(role.RoleId);
+                rolesCollection.Add(role1);
+            }
+
+            model = new UserRoleViewModel { user = user, roles = rolesCollection };
+
+
+            return PartialView(model);
+        }
+
+
+        // /Manage/Profiel
+
+        public ActionResult Profiel()
+        {
+
+            User user = apc.Users.Find(User.Identity.GetUserId());
 
             var model = new UserRoleViewModel();
 
@@ -92,6 +118,7 @@ namespace JPP.UI.Web.MVC.Controllers
                 : message == ManageMessageId.AddPhoneSuccess ? "Uw GSM-nummer is toegevoegd."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Uw GSM-nummer is verwijderd."
                 : "";
+                    
 
             var model = new IndexViewModel
             {
@@ -104,6 +131,49 @@ namespace JPP.UI.Web.MVC.Controllers
             return View(model);
         }
 
+
+        // /Manage/AccountInstellingen2
+       
+        public ActionResult InstellingenPartial()
+        {
+
+            User user = apc.Users.Find(User.Identity.GetUserId());
+            return PartialView(user);
+
+
+        }
+
+        
+        // /Manage/AccountInstellingen2
+
+      [HttpPost]
+        public ActionResult InstellingenPartial(string id, User user)
+        {
+
+            var store = new UserStore<User>(apc);
+            var userManager = new UserManager<User>(store);
+
+            try
+            {
+                // TODO: Add update logic here
+
+                apc.Entry(user).State = System.Data.Entity.EntityState.Modified;
+
+             
+                userManager.Update(user);
+                apc.SaveChanges();
+
+                return RedirectToAction("AccountInstellingen");
+            }
+            catch
+            {
+
+                return PartialView("ErrorPartial");
+              
+            }
+
+        }
+       
         //
         // GET: /Manage/RemoveLogin
         public ActionResult RemoveLogin()
@@ -172,6 +242,65 @@ namespace JPP.UI.Web.MVC.Controllers
 
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number, Code = code });
 
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> zetProfielPubliek()
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var store = new UserStore<User>(apc);
+            var userManager = new UserManager<User>(store);
+            user.profilePublic = true;
+            
+            try
+            {
+                // TODO: Add update logic here
+
+                apc.Entry(user).State = System.Data.Entity.EntityState.Modified;
+
+                await userManager.UpdateAsync(user);
+                apc.SaveChanges();
+                userManager.Update(user);
+                apc.SaveChanges();
+
+                return RedirectToAction("Index","Manage");
+            }
+            catch
+            {
+
+
+                return RedirectToAction("Error", "Shared");
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> zetProfielPrive()
+        {
+
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var store = new UserStore<User>(apc);
+            var userManager = new UserManager<User>(store);
+            user.profilePublic = false;
+
+            try
+            {
+                // TODO: Add update logic here
+
+                apc.Entry(user).State = System.Data.Entity.EntityState.Modified;
+
+                await userManager.UpdateAsync(user);
+                apc.SaveChanges();
+                userManager.Update(user);
+                apc.SaveChanges();
+
+                return RedirectToAction("Index", "Manage");
+            }
+            catch
+            {
+
+
+                return RedirectToAction("Error", "Shared");
+            }
         }
 
         //

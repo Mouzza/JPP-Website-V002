@@ -100,7 +100,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Wijzig", "WijzigGebruiker", new { id = item.user.Id }) |
-                        @Html.ActionLink("Detail", "Profiel", new { id = item.user.Id }) |
+                        @Html.ActionLink("Detail", "Profiel", new { UserName = item.user.UserName }) |
 
 
                         @if (item.user.LockoutEnabled == true)

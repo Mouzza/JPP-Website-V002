@@ -105,7 +105,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Wijzig", "WijzigGebruiker", new { id = item.user.Id }) |
-                        @Html.ActionLink("Detail", "Profiel", new { id = item.user.Id }) |
+                        @Html.ActionLink("Detail", "Profiel", new { UserName = item.user.UserName }) |
                         @Html.ActionLink("Deblokkeer", "BlokkeerGebruiker", new { id = item.user.Id }) |
                         @Html.ActionLink("Verwijder", "VerwijderGebruiker", new { id = item.user.Id })
 

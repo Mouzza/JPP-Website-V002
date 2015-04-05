@@ -393,6 +393,9 @@
     <Content Include="Views\Gebruiker\VerwijderGebruiker.cshtml" />
     <Content Include="Views\Gebruiker\WijzigGebruiker.cshtml" />
     <Content Include="Views\Gebruiker\recenteGebruikers.cshtml" />
+    <Content Include="Views\Manage\InstellingenPartial.cshtml" />
+    <Content Include="Views\Manage\ErrorPartial.cshtml" />
+    <Content Include="Views\Manage\ProfielPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

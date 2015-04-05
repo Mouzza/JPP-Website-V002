@@ -42,10 +42,10 @@ namespace JPP.UI.Web.MVC.Controllers
         private ApplicationDbContext apc = new ApplicationDbContext();
 
         // GET: Gebruiker
-        public ActionResult Profiel(string id)
+        public ActionResult Profiel(string UserName)
         {
 
-            User user = apc.Users.Find(id);
+            User user = apc.Users.FirstOrDefault(u => u.UserName == UserName);
 
             var model = new UserRoleViewModel();
 
@@ -99,7 +99,7 @@ namespace JPP.UI.Web.MVC.Controllers
             {
 
 
-                return RedirectToAction("Error");
+                return RedirectToAction("Error","Admin");
             }
 
         }
@@ -216,7 +216,7 @@ namespace JPP.UI.Web.MVC.Controllers
             }
             catch
             {
-                return RedirectToAction("Error");
+                return RedirectToAction("Error", "Admin");
             }
 
 

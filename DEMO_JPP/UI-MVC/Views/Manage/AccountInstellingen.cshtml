@@ -1,22 +1,24 @@
 ﻿@model JPP.UI.Web.MVC.Models.IndexViewModel
 @{
     ViewBag.Title = "Account instellingen";
+    
 }
 @using Microsoft.AspNet.Identity
 
-<h2>@ViewBag.Title.</h2>
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
+
+@Html.Action("ProfielPartial")
+
+
+
+<div class="col-md-6">
+    
+    <h2>@ViewBag.Title.</h2>
+    <p class="text-success">@ViewBag.StatusMessage</p>
     <h4>Wijzig de instellingen van uw account</h4>
     <hr />
     <dl class="dl-horizontal">
-       
-        <dt>Naam: </dt>
-        <dd>
-            @User.Identity.GetUserName()
 
-        </dd>
         <dt>Wachtwoord:</dt>
         <dd>
             [
@@ -72,7 +74,11 @@
                 </form>
             }
         </dd>
-    </dl>
-</div>
 
-<a href="@Url.Action("Index")"><img src="~/Images/page icons/goBack2.png" /> Ga terug</a>
+    </dl>
+
+</div>
+@Html.Action("InstellingenPartial")
+
+
+

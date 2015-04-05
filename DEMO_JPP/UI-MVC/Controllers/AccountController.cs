@@ -195,7 +195,17 @@ namespace JPP.UI.Web.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Name, Email = model.Email, Created = DateTime.Now, EmailConfirmed = true };
+                var user = new User
+                {
+                    UserName = model.Name,
+                    Email = model.Email,
+                    Created = DateTime.Now,
+                    profilePublic = true,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Birthday = model.Birthday,
+                    Zipcode = model.Zipcode
+                };
          
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -230,7 +240,15 @@ namespace JPP.UI.Web.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-               var user = new User { UserName = model.Name, Email = model.Email , Created = DateTime.Now};
+               var user = new User { UserName = model.Name, 
+                                     Email = model.Email , 
+                                     Created = DateTime.Now, 
+                                     profilePublic = true, 
+                                     FirstName = model.FirstName, 
+                                     LastName=model.LastName, 
+                                     Birthday=model.Birthday, 
+                                     Zipcode = model.Zipcode};
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

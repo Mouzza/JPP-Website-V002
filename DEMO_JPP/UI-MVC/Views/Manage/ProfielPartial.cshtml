@@ -1,8 +1,9 @@
 ﻿@model JPP.UI.Web.MVC.Models.UserRoleViewModel
- @{
-     var tekstRollen = "";
+@{
+    var tekstRollen = "";
 
-   }
+    Layout = "";
+}
 
 <h2>Profiel</h2>
 
@@ -11,12 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Gebruikersnaam:
+            Gebruikersnaam
         </dt>
 
         <dd>
-            @Model.user.UserName 
- 
+            @Html.DisplayFor(model => model.user.UserName)
         </dd>
         <dt>
             Voornaam:
@@ -58,7 +58,7 @@
             {
                 Model.user.PhoneNumber = "Geen";
             }
-            
+
             @Html.DisplayFor(model => Model.user.PhoneNumber)
 
         </dd>
@@ -117,9 +117,3 @@
         }
     </dl>
 </div>
-<p>
-   @Html.ActionLink("Wijzigen", "AccountInstellingen") |
-    @Html.ActionLink("Ga terug", "Index")
-</p>
-
-@*@{Html.RenderPartial("~/Views/Gebruiker/WijzigGebruiker.cshtml", new { id = Model.user.Id });}*@
