@@ -12,12 +12,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Gebruikersnaam
+            Gebruikersnaam:
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.user.UserName)
         </dd>
+        <br>
         <dt>
             Voornaam:
         </dt>
@@ -50,6 +51,7 @@
             @Model.user.Zipcode
 
         </dd>
+        <br>
         <dt>
             Gsm-nummer:
         </dt>
@@ -69,9 +71,9 @@
         <dd>
             @Model.user.Email
         </dd>
-
+        <br>
         <dt>
-            Roles:
+            Role(s):
         </dt>
         <dd>
             @{var laatsteRol = Model.roles.Last(); tekstRollen = "";}

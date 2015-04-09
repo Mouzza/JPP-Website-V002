@@ -70,7 +70,7 @@ namespace JPP.UI.Web.MVC
             {
                 name = "Gebruiker" + i;
                 email = "gebruiker" + i + "@test.be";
-                password = "Gebruiker0"+i +"!";
+                password = "Gebruiker0"+i;
                 roleName = "Gebruiker";
 
                 var gebruiker = UserManager.FindByName(name);
@@ -104,7 +104,7 @@ namespace JPP.UI.Web.MVC
             //Admin----------------------------------------------
             name = "Admin";
             email = "admin@admin.be";
-            password = "Admin01!";
+            password = "Admin01";
 
             roleName = "Admin";
 
@@ -151,7 +151,7 @@ namespace JPP.UI.Web.MVC
             //Moderator ------------------------------------------
              name = "Moderator";
              email = "moderator@mod.be";
-             password = "Mod01!";
+             password = "Mod01";
 
              roleName = "Moderator";
 
@@ -197,7 +197,7 @@ namespace JPP.UI.Web.MVC
             //Expert----------------------------------------------
             name = "Expert";
             email = "expert@expert.be";
-            password = "Expert01!";
+            password = "Expert01";
 
             roleName = "Expert";
 
