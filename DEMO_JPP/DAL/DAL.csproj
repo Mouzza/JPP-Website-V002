@@ -49,6 +49,8 @@
     <Compile Include="EF\EFDbConfiguration.cs" />
     <Compile Include="EF\EFDbContext.cs" />
     <Compile Include="EF\EFDbInitializer.cs" />
+    <Compile Include="IModuleMapper.cs" />
+    <Compile Include="EF\ModuleMapper.cs" />
     <Compile Include="EF\Repository.cs" />
     <Compile Include="IAdminRespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

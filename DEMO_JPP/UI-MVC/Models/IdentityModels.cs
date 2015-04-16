@@ -19,6 +19,7 @@ namespace JPP.UI.Web.MVC.Models
         public virtual DateTime Birthday { get; set; }
         public virtual int Zipcode { get; set; }
 
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

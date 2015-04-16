@@ -1,0 +1,73 @@
+﻿@model IEnumerable<JPP.Domain.Dossiermodule>
+
+@{
+    ViewBag.Title = "Dossiermodules";
+}
+
+<h2>Dossiermodules</h2>
+
+<p>
+    @Html.ActionLink("Dossiermodule aanmaken", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Admin naam
+        </th>
+        <th>
+           Inhoud
+        </th>
+        <th>
+           Start datum
+        </th>
+        <th>
+            Eind datum
+        </th>
+        <th>
+            Verplichte volledigheids %
+        </th>
+        <th>Vraag</th>
+        <th>Status</th>
+        <th>Thema</th>
+        <th>Bel</th>
+        <th id="settingsLayout">Instellingen</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminNaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.beginDatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eindDatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.volledigheidsPercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.centraleVraag.inhoud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.thema.inhoud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.beloning.naam)
+        </td>
+        <td>
+            @Html.ActionLink("Wijzig", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Verwijder", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
