@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EF\AntwoordMapper.cs" />
     <Compile Include="EF\EFDbConfiguration.cs" />
     <Compile Include="EF\EFDbContext.cs" />
     <Compile Include="EF\EFDbInitializer.cs" />
+    <Compile Include="IAntwoordMapper.cs" />
     <Compile Include="IModuleMapper.cs" />
     <Compile Include="EF\ModuleMapper.cs" />
     <Compile Include="EF\Repository.cs" />

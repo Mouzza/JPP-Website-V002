@@ -14,7 +14,7 @@ namespace JPP.Domain
         public virtual Beloning beloning { get; set; }
         public string gebruikerNaam { get; set; }
         public virtual Thema thema { get; set; }
-        public virtual CentraleVraag centraleVraag { get; set; }
+        //public virtual CentraleVraag centraleVraag { get; set; }
 
         public string naam { get; set; }
         public ModuleStatus status { get; set; }

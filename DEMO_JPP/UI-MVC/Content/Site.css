@@ -274,5 +274,56 @@ textarea {
 
 #extraInfoTable{
     float:left;
-    margin:2%;
+    margin:1%;
 }
+
+#beloningSecion{
+
+    border:1px solid gray;
+    padding:1%;
+    margin-bottom:10px;
+    background-color:lightgrey;
+}
+
+#dossierModule{
+    border:2px solid black;
+    padding:5%;
+    background-color: white;
+}
+#dossierModuleContent{
+
+
+}
+
+ #dossierModule h4{
+     color:#00789a;
+
+ }
+  #dossierModule h2{
+    font-family:'Comic Sans MS'
+
+ }
+  #dossierModule p{
+   text-align:right;
+
+ }
+  #extrainfoSpan{
+   font-weight:bold;
+
+
+ }
+
+  #extraInfoParagraaf{
+
+      float:right;
+  }
+
+  #zelfdeGebruikerSpan{
+
+      color:green;
+      font-weight:bold;
+  }
+
+  .verborgen{
+      display:none;
+  }

@@ -14,9 +14,9 @@ namespace JPP.Domain
 
         public Dossiermodule()
         {
-            VasteVraag vv = new VasteVraag();
+  
             vasteVragen = new List<VasteVraag>();
-            vasteVragen.Add(vv);
+         
         }
 
         [Key]

@@ -17,6 +17,35 @@ namespace JPP.BL
             moduleMapper = new ModuleMapper();
 
         }
+
+        public Dossiermodule GetDossiermodule(int id){
+            return moduleMapper.ReadDossiermodule(id);
+        }
+
+        public Agendamodule GetAgendamodule(int id){
+            return moduleMapper.ReadAgendamodule(id);
+        }
+
+        public void ChangeDossiermodule(Dossiermodule dossiermodule)
+        {
+            moduleMapper.UpdateDossiermodule(dossiermodule);
+        }
+
+        public void ChangeAgendamodule(Agendamodule agendamodule)
+        {
+            moduleMapper.UpdateAgendamodule(agendamodule);
+        }
+
+        public void RemoveDossiermodule(int id)
+        {
+            moduleMapper.DeleteDossiermodule(id);
+        }
+
+        public void RemoveAgendamodule(int id)
+        {
+            moduleMapper.DeleteAgendamodule(id);
+        }
+
         public IEnumerable<Dossiermodule> GetAllDossierModules()
         {
             return moduleMapper.ReadAllDossiermodules();

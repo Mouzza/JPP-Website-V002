@@ -9,6 +9,15 @@ namespace JPP.DAL.EF
 {
     public interface IModuleMapper
     {
+        Dossiermodule ReadDossiermodule(int id);
+        Agendamodule ReadAgendamodule(int id);
+
+        void DeleteDossiermodule(int id);
+        void DeleteAgendamodule(int id);
+
+        void UpdateDossiermodule(Dossiermodule dossiermodule);
+        void UpdateAgendamodule(Agendamodule agendamodule);
+
         IEnumerable<Dossiermodule> ReadAllDossiermodules();
         IEnumerable<Agendamodule> ReadAllAgendamodules();
         Dossiermodule CreateDossiermodule(Dossiermodule dossiermodule);

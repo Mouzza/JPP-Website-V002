@@ -1,0 +1,93 @@
+﻿@model IEnumerable<JPP.Domain.DossierAntwoord>
+
+@{
+    ViewBag.Title = "Lijst";
+}
+
+<h2>@Model.First().dossierModule.naam:  Antwoorden(@Model.Count())</h2>
+
+<p>
+    @Html.ActionLink("Maak een antwoord", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gebruikerNaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.medebeheerderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expertNaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.inhoud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.extraInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aantalStemmen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.percentageVolledigheid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusOnline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.extraVraag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aantalFlags)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gebruikerNaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.medebeheerderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expertNaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inhoud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.extraInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aantalStemmen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.percentageVolledigheid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusOnline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.extraVraag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aantalFlags)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

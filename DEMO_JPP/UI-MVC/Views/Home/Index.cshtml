@@ -7,7 +7,7 @@
         {
             <h1 id="paginaTitel"><span id="spanZwart">LOKAAL</span> KABAAL</h1>
             
-            <div class="row">
+            <div id="homeIconMenu" class="row verborgen">
                 <div class="col-md-4 centraal">
                 
                     <a href="#"><img src="~/Images/menu logos/berichtenLogo.png"></a>
@@ -30,80 +30,92 @@
                     </div>
               
             </div>
-
-    <hr /> 
-            Html.RenderAction("recenteGebruikers", "Gebruiker");
-            Html.RenderAction("recenteGebruikers", "Gebruiker");
-            Html.RenderAction("recenteGebruikers", "Gebruiker");
-
-
-
-
-
-        }
-        else
-        {
-        <div class="row">
-            <div class="col-md-4 centraal">
-
-                <a href="#"><img src="~/Images/websitePage logos/iconIdea.png"></a>
-                <h2>Bedenk</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
-                    Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
-                </p>
-            </div>
-            <div class="col-md-4 centraal">
-
-                <a href="#"><img src="~/Images/websitePage logos/iconSamenwerken.png"></a>
-                <h2>Werk samen</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
-                    Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
-                </p>
-            </div>
-            <div class="col-md-4 centraal">
-
-                <a href="#"><img src="~/Images/websitePage logos/iconLike.png"></a>
-                <h2>Like</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
-                    Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
-                </p>
-            </div>
-
-        </div>
     <hr />
-        <div class="row">
-            <div class="col-md-4 centraal">
 
-                <a href="#"><img src="~/Images/websitePage logos/iconExpert.png"></a>
-                <h2>Vraag aan expert</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
-                    Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
-                </p>
-            </div>
-            <div class="col-md-4 centraal">
 
-                <a href="#"><img src="~/Images/websitePage logos/iconQuestion.png"></a>
-                <h2>Comment</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
-                    Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
-                </p>
-            </div>
-            <div class="col-md-4 centraal">
+    <p>
+        <button id="hide">Verberg</button>
+        <button id="show">Toon</button>
+    </p>
+            Html.RenderAction("Actief", "Module");
 
-                <a href="#"><img src="~/Images/websitePage logos/iconVolgOp.png"></a>
-                <h2>Volg op</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
-                    Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
-                </p>
-            </div>
+            Html.RenderAction("_partialAntwoordLijst", "Antwoord");
 
-        </div>
+            <hr />
 
-        }
+
+            Html.RenderAction("recenteGebruikers", "Gebruiker");
+                Html.RenderAction("recenteGebruikers", "Gebruiker");
+                Html.RenderAction("recenteGebruikers", "Gebruiker");
+
+
+
+
+
+                }
+                else
+                {
+                <div class="row">
+                    <div class="col-md-4 centraal">
+
+                        <a href="#"><img src="~/Images/websitePage logos/iconIdea.png"></a>
+                        <h2>Bedenk</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
+                            Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
+                        </p>
+                    </div>
+                    <div class="col-md-4 centraal">
+
+                        <a href="#"><img src="~/Images/websitePage logos/iconSamenwerken.png"></a>
+                        <h2>Werk samen</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
+                            Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
+                        </p>
+                    </div>
+                    <div class="col-md-4 centraal">
+
+                        <a href="#"><img src="~/Images/websitePage logos/iconLike.png"></a>
+                        <h2>Like</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
+                            Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
+                        </p>
+                    </div>
+
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 centraal">
+
+                        <a href="#"><img src="~/Images/websitePage logos/iconExpert.png"></a>
+                        <h2>Vraag aan expert</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
+                            Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
+                        </p>
+                    </div>
+                    <div class="col-md-4 centraal">
+
+                        <a href="#"><img src="~/Images/websitePage logos/iconQuestion.png"></a>
+                        <h2>Comment</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
+                            Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
+                        </p>
+                    </div>
+                    <div class="col-md-4 centraal">
+
+                        <a href="#"><img src="~/Images/websitePage logos/iconVolgOp.png"></a>
+                        <h2>Volg op</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet ullamcorper tempor.
+                            Nullam at suscipit arcu. Nunc a magna id diam efficitur scelerisque eget ac eros. Ut consectetur erat diam.
+                        </p>
+                    </div>
+
+                </div>
+
+                }
 

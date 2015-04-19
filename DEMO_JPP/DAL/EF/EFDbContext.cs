@@ -58,6 +58,9 @@ namespace JPP.DAL.EF
 
             //// 'Contactpersoon.Id' as unique identifier
             //modelBuilder.Entity<Contactpersoon>().HasKey(c => c.id);
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
            
         }
     }

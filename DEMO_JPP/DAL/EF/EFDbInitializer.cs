@@ -57,25 +57,9 @@ namespace JPP.DAL.EF
 
 
             };
-            DossierAntwoord dossierAntwoord = new DossierAntwoord()
-            {
-               
-                gebruikerNaam = "eze5",
-                expertNaam = "zaz56",
-                inhoud ="Een plein met fitness toestellen zou heel nuttig zijn voor de sportieve bewoners/bezoekers! Mvg",
-                extraInfo ="Zeer positieve reacties ivm deze idee, besproken met de buurtbewoners van rivierenhof =)",
-                datum = DateTime.Now,
-                aantalStemmen = 20,
-                percentageVolledigheid = 95,
-                statusOnline = true,
-                extraVraag = "Zou het mogelijk zijn om handtekeningen te verzamelen om mijn idee te kunnen steunen?",
-                aantalFlags=0,
-                comments = new List<Comment>(),
-                tags = new List<Tag>(),
-                persoonlijkeTags = new List<PersoonlijkeTag>()
+            
+          
 
-
-            };
 
             Dossiermodule dossierModule = new Dossiermodule()
             {
@@ -110,23 +94,52 @@ namespace JPP.DAL.EF
                 voorstellen = new List<Voorstel>()
             };
 
-            //Tags
-            tag.dossierAntwoorden.Add(dossierAntwoord);
-            pTag.dossierAntwoorden.Add(dossierAntwoord);
+
+            for (int i = 0; i < 32; i++)
+            {
+                DossierAntwoord dossierAntwoord = new DossierAntwoord()
+                {
+
+                    gebruikerNaam = "Admin",
+                    expertNaam = "zaz56",
+                    inhoud = "Een plein met fitness toestellen zou heel nuttig zijn voor de sportieve bewoners/bezoekers! Mvg",
+                    extraInfo = "Zeer positieve reacties ivm deze idee, besproken met de buurtbewoners van rivierenhof =)",
+                    datum = DateTime.Now,
+                    aantalStemmen = 20,
+                    percentageVolledigheid = 95,
+                    statusOnline = true,
+                    extraVraag = "Zou het mogelijk zijn om handtekeningen te verzamelen om mijn idee te kunnen steunen?",
+                    aantalFlags = 0,
+                    comments = new List<Comment>(),
+                    tags = new List<Tag>(),
+                    persoonlijkeTags = new List<PersoonlijkeTag>()
+
+
+                };
+                dossierModule.dossierAntwoorden.Add(dossierAntwoord);
+
+                //Tags
+                tag.dossierAntwoorden.Add(dossierAntwoord);
+                pTag.dossierAntwoorden.Add(dossierAntwoord);
+
+                //DossierAntwoord
+                dossierAntwoord.dossierModule = dossierModule;
+                dossierAntwoord.tags.Add(tag);
+                dossierAntwoord.persoonlijkeTags.Add(pTag);
+
+            }
 
             //vasteVraagAntwoord.vasteVraag = vasteVraag;
             vasteVraag.vasteVraagAntwoorden.Add(vasteVraagAntwoord);
             
-            //DossierAntwoord
-            dossierAntwoord.dossierModule = dossierModule;
-            dossierAntwoord.tags.Add(tag);
-            dossierAntwoord.persoonlijkeTags.Add(pTag);
-
+        
             //DossierModule
             dossierModule.beloning = beloning;
             dossierModule.thema = thema;
             dossierModule.centraleVraag = centraleVraag;
-            dossierModule.dossierAntwoorden.Add(dossierAntwoord);
+
+           
+       
             dossierModule.vasteVragen.Add(vasteVraag);
 
          
